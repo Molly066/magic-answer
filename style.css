@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #1a1a2e);
+    font-family: 'Noto Sans SC', sans-serif;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    text-shadow: 0 0 10px rgba(147, 88, 247, 0.5);
+}
+
+.crystal-ball {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, rgba(147, 88, 247, 0.2), rgba(86, 77, 182, 0.2));
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba(147, 88, 247, 0.3);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
+
+.crystal-ball::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, transparent 30%, rgba(255, 255, 255, 0.1) 100%);
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.answer-text {
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.answer-text.show {
+    opacity: 1;
+}
+
+.glow-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #9358f7, #564db6);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(147, 88, 247, 0.5);
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
+.glow-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(147, 88, 247, 0.7);
+}
+
+.glow-button:active {
+    transform: translateY(1px);
+}
+
+footer {
+    position: fixed;
+    bottom: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .crystal-ball {
+        width: 250px;
+        height: 250px;
+    }
+
+    .answer-text {
+        font-size: 1.2rem;
+    }
+} 
